@@ -1,0 +1,16 @@
+.cardInfo {
+  font-family: sans-serif;
+  font-size: 18px;
+  border: 1px solid black;
+  min-width: 400px;
+  background-color: #a39eec;
+  padding-left: 15px;
+}
+
+.active {
+  color: green;
+}
+
+.retired {
+  color: red;
+}

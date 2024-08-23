@@ -1,0 +1,11 @@
+.btn {
+  padding: 12px;
+}
+
+.primary {
+  background-color: greenyellow;
+}
+
+.secondary {
+  background-color: orangered;
+}

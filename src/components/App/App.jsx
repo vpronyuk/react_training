@@ -10,7 +10,9 @@ export default function App() {
       <Button type="submit" variant="secondary">
         Decline
       </Button>
+
       <h1 className={css.title}>Available officers</h1>
+      <h2>test SSH</h2>
       <OfficersList officers={data} />
     </div>
   );

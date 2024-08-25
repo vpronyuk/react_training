@@ -1,19 +1,21 @@
-import OfficersList from "../OfficersList/OfficersList";
-import Button from "../Button/Button";
-import data from "../../officers.json";
+import { useState } from "react";
+import Reader from "../Reader/Reader";
+import articlesData from "../articles.json";
+
 import css from "./App.module.css";
+import HideShow from "../HideShow/HideShow";
 
 export default function App() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleToggle = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <div className={css.container}>
-      <Button variant="primary">Accept</Button>
-      <Button type="submit" variant="secondary">
-        Decline
-      </Button>
-
-      <h1 className={css.title}>Available officers</h1>
-      <h2>test SSH</h2>
-      <OfficersList officers={data} />
+      <Reader articles={articlesData} />
+      <HideShow onToggle={handleToggle} isVisible={isVisible} />
     </div>
   );
 }

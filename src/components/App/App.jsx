@@ -1,21 +1,17 @@
-import { useState } from "react";
-import Reader from "../Reader/Reader";
-import articlesData from "../articles.json";
-
 import css from "./App.module.css";
-import HideShow from "../HideShow/HideShow";
+import ClickTracker from "../ClickTracker/ClickTracker";
+import Timer from "../Timer/Timer";
+import { useState } from "react";
 
 export default function App() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleToggle = () => {
-    setIsVisible(!isVisible);
-  };
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={css.container}>
-      <Reader articles={articlesData} />
-      <HideShow onToggle={handleToggle} isVisible={isVisible} />
+      <ClickTracker />
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "Close" : "Open"}
+      </button>
+      {isOpen && <Timer />}
     </div>
   );
 }

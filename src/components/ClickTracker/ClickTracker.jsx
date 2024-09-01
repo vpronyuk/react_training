@@ -1,20 +1,30 @@
 import { useEffect, useState } from "react";
 
 export default function ClickTracker() {
-  const [clicks, setClicks] = useState(0);
+  const [clicks, setClicks] = useState(() => {
+    const savedClicks = localStorage.getItem("my-clicks");
+    if (savedClicks !== null) {
+      return JSON.parse(savedClicks);
+    }
+    return 0;
+  });
   const [date, setDate] = useState(Date.now());
 
   useEffect(() => {
-    console.log("Only on mount");
-  }, []);
-
-  useEffect(() => {
-    console.log("clicks", clicks);
+    localStorage.setItem("my-clicks", clicks);
   }, [clicks]);
 
-  useEffect(() => {
-    console.log("date", date);
-  }, [date]);
+  // useEffect(() => {
+  //   console.log("Only on mount");
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("clicks", clicks);
+  // }, [clicks]);
+
+  // useEffect(() => {
+  //   console.log("date", date);
+  // }, [date]);
 
   return (
     <div>

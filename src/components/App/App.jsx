@@ -2,6 +2,7 @@ import css from "./App.module.css";
 import ClickTracker from "../ClickTracker/ClickTracker";
 import Timer from "../Timer/Timer";
 import { useState } from "react";
+import LocalStorageClicker from "../LocalStorageClicker/LocalStorageClicker";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,8 @@ export default function App() {
         {isOpen ? "Close" : "Open"}
       </button>
       {isOpen && <Timer />}
+      <hr />
+      <LocalStorageClicker />
     </div>
   );
 }
